@@ -7,7 +7,11 @@ import androidx.room.RoomDatabase
 import com.test.examen.features.dollar.data.database.dao.IDollarDao
 import com.test.examen.features.dollar.data.database.entity.DollarEntity
 
-@Database(entities = [DollarEntity::class], version = 1)
+@Database(
+    entities = [DollarEntity::class],
+    version = 2,
+    exportSchema = true
+)
 abstract class AppRoomDatabase : RoomDatabase() {
     abstract fun dollarDao(): IDollarDao
     companion object {

@@ -22,6 +22,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.test.examen.features.dollar.presentation.DollarScreen
 import com.test.examen.features.movies.presentation.MoviesScreen
+import com.test.examen.features.profile.presentation.ProfileScreen
 import com.test.examen.ui.components.BottomNavItem
 import com.test.examen.ui.components.FloatingBottomNavBar
 
@@ -57,7 +58,7 @@ fun AppNavigation() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Movie.route) { MoviesScreen() }
-            composable(Screen.Profile.route) { Placeholder("Profile") }
+            composable(Screen.Profile.route) { ProfileScreen() }
             composable(Screen.Dollar.route) { DollarScreen() }
         }
     }

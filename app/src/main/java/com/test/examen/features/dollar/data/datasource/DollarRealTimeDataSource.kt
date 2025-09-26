@@ -12,22 +12,41 @@ import kotlinx.coroutines.flow.callbackFlow
 
 class DollarRealTimeDataSource {
 
-    suspend fun getDollarUpdates(): Flow<DollarModel> = callbackFlow {
-        val callback = object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {}
-
+    fun getDollarUpdates(): Flow<DollarModel> = callbackFlow {
+        val ref = Firebase.database.getReference("dollar")
+        val listener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val official = snapshot.child("dollarOfficial").value
-                val parallel = snapshot.child("dollarParallel").value
+                fun readString(key: String): String? {
+                    val v = snapshot.child(key).value
+                    return when (v) {
+                        is Number -> v.toString()
+                        is String -> v
+                        is Boolean -> v.toString()
+                        else -> null
+                    }
+                }
+                fun readLong(key: String): Long {
+                    val v = snapshot.child(key).value
+                    return when (v) {
+                        is Number -> v.toLong()
+                        is String -> v.toLongOrNull() ?: 0L
+                        else -> 0L
+                    }
+                }
                 val model = DollarModel(
-                    dollarOfficial = official?.toString(),
-                    dollarParallel = parallel?.toString()
+                    dollarOfficial = readString("dollarOfficial"),
+                    dollarParallel = readString("dollarParallel"),
+                    usdt = readString("usdt"),
+                    usdc = readString("usdc"),
+                    updatedAt = readLong("updatedAt")
                 )
                 trySend(model)
             }
+            override fun onCancelled(error: DatabaseError) {
+                close(error.toException())
+            }
         }
-        val ref = Firebase.database.getReference("dollar")
-        ref.addValueEventListener(callback)
-        awaitClose { ref.removeEventListener(callback) }
+        ref.addValueEventListener(listener)
+        awaitClose { ref.removeEventListener(listener) }
     }
 }
