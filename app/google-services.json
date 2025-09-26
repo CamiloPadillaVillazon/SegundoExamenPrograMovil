@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "253140114585",
+    "firebase_url": "https://dollarbase-f9a68-default-rtdb.firebaseio.com",
+    "project_id": "dollarbase-f9a68",
+    "storage_bucket": "dollarbase-f9a68.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253140114585:android:046eaef5dfbb14cd98ac08",
+        "android_client_info": {
+          "package_name": "com.calyrsoft.ucbp1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbh5_vt59quQU05DK1VjAmMNyScUjYQiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253140114585:android:54e874c40babfa5e98ac08",
+        "android_client_info": {
+          "package_name": "com.example.cmovile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbh5_vt59quQU05DK1VjAmMNyScUjYQiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253140114585:android:7c89b057a181d14c98ac08",
+        "android_client_info": {
+          "package_name": "com.test.examen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbh5_vt59quQU05DK1VjAmMNyScUjYQiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
